@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping cart</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+
 </head>
 <body>
     <header>
@@ -22,7 +25,36 @@
                 <a href="">Contact</a>
                 <a href="">About</a>
             </div>
-        </div>
+
+            <!--CART-->
+            <div class="nav-info cart-info" id="cart-info">
+                <span class="cart-info__icon"><i class="fas fa-shopping-cart"></i></span>
+                <p><span class="item-count">0</span>items</p>
+            </div>
+
+            <section class="cart" id="cart">
+                <h1 class="section-header">CART</h1>
+                <div class="cart-row">
+                    <span class="cart-item cart-header cart-column">ITEM</span>
+                    <span class="cart-price cart-header cart-column">PRICE</span>
+                    <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                </div>
+
+                <div class="cart-items">
+
+
+                </div>
+
+                <div class="cart-total">
+                    <strong class="cart-total-title">TOTAL</strong>
+                    <span class="cart-total-price">$0</span>
+                </div>
+                <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+
+            </section>
+
+
+        </div> <!--navbar-container-->
     </header>
     
     <div class="main-container">

@@ -1,3 +1,88 @@
+(function() {
+    // show cart function
+const cartInfo = document.getElementById('cart-info');
+const cart = document.getElementById('cart');
+
+cartInfo.addEventListener('click', function() {
+    cart.classList.toggle("show-cart");
+});
+})();
+
+// onload
+if (document.readyState == "loading") {
+    document.addEventListener('DOMContentLoaded', ready);
+} else {
+    ready();
+}
+
+function ready() {
+    let addToCartButtons = document.getElementsByClassName("ADD_TO_CART");
+    
+    for ( let i = 0; i < addToCartButtons.length; i++) {
+        let button = addToCartButtons[i];
+        button.addEventListener('click', addToCartClicked);
+    }
+
+    document
+        .getElementsByClassName('btn-purchase')[0]
+        .addEventListener('click', purchaseClicked);
+}
+
+
+// functions to be added
+function purchaseClicked(){return;}
+function removeItemClicked(){return;}
+function quantityChanged() {return;}
+
+
+function addToCartClicked(event) {
+    let button = event.target;
+    let product = button.parentElement.parentElement;
+    let title = product.getElementsByClassName('product-title')[0].innerText;
+    let price = product.getElementsByClassName("product__price")[0].innerText;
+    let imageSrc = product.getElementsByClassName("product__image")[0].src;
+
+    addItemToCart(title, price, imageSrc);
+}
+
+function addItemToCart(title, price, imageSrc) {
+
+    let cartRow = document.createElement("div");
+    cartRow.classList.add("cart-row");
+
+    let cartItems = document.getElementsByClassName("cart-items")[0];
+    let cartItemTitles = document.getElementsByClassName("cart-item-title");
+
+    for ( let i = 0; i < cartItemTitles.length; i++) {
+        if( cartItemTitles[i].innerText == title) {
+            alert("the item has already been added to cart");
+            return;
+        }
+    }
+
+    let cartRowContent = `<div class="cart-item cart-column">
+                           <img src="${imageSrc}" class="cart-item-image">
+                           <span class="cart-item-title">${title}</span>
+                           </div>  
+                           
+                            <span class="cart-item cart-column">${price}</span>
+                            
+                            <div class="cart-quantity cart-column">
+                            <input class="cart-quantity-input" type="number" value="1">
+                            <button class="btn btn-remove" type="button">REMOVE</button>  
+                            </div>`;
+
+    cartRow.innerHTML = cartRowContent;
+    cartItems.append(cartRow);
+
+    cartRow
+        .getElementsByClassName("btn-remove")[0]
+        .addEventListener('click', removeItemClicked);
+    
+    cartRow
+        .getElementsByClassName("cart-quantity-input")[0]
+        .addEventListener('click', quantityChanged);
+}
 
 
 
@@ -34,19 +119,14 @@ function addClass(element, name) {
     arr1 = element.className.split(" ");
     // splitting names that we want to add to arr1 className
     arr2 = name.split(" ");
-
     for ( i = 0; i < arr2.length; i++) {
 
         if ( arr1.indexOf(arr2[i]) == -1) {
 
             element.className += " " + arr2[i];
         }
-
     }
-
 }
-
-
 
 // remove class name function
 function removeClass(element, name) {
@@ -71,13 +151,9 @@ function removeClass(element, name) {
 
 // btn container
 const btnContainer = document.getElementById('filterButtons');
-
 // buttons inside filterbuttons container
 const btns = btnContainer.getElementsByClassName('btn');
-
-
 // Adding active class to current button
-
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function () {
 
@@ -90,12 +166,4 @@ for (let i = 0; i < btns.length; i++) {
 }
 
 
-
-// show cart function
-const cartInfo = document.getElementById('cart-info');
-const cart = document.getElementById('cart');
-
-cartInfo.addEventListener('click', function() {
-    cart.classList.toggle("show-cart");
-})
 

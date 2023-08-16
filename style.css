@@ -129,6 +129,12 @@ body {
     cursor: pointer;
 }
 
+#item-count {
+    color: blue;
+    font-size: bold;
+    font-family: cursive;
+}
+
 .cart-info {
     color: black;
     border-radius: 0.25rem;

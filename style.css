@@ -4,7 +4,7 @@
 }
 
 :root {
-    --primaryColor: rgb(240, 240, 197);
+    --primaryColor: rgb(240, 225, 197);
     --mainWhite: rgb(243,243,240);
     --mainGrey: #e7eef8;
 }
@@ -79,6 +79,7 @@ body {
     color: black;   
     cursor: pointer;
     font-family: monospace;
+    margin-top: 10px;
 }
 
 .btn:hover {
@@ -97,7 +98,7 @@ body {
     float: left;
     margin: 40px;
     background-color: var(--primaryColor);
-    height: 380px;
+    height: 360px;
     text-align: center;
     color: black;
     display: none;
@@ -137,6 +138,7 @@ body {
     margin-left: 92%;
     padding: 0.01rem 0.9rem;
     height: 20px;
+    text-align: center;
 }
 
 .cart-info:hover {
